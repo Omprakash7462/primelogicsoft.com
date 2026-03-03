@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [WebsiteController::class,'index'])->name('index');
+Route::get('/about-us', [WebsiteController::class,'aboutUs'])->name('about.us');
+Route::get('/products', [WebsiteController::class,'index'])->name('products');
+Route::get('/services', [WebsiteController::class,'index'])->name('services');
+Route::get('/blogs', [WebsiteController::class,'blogs'])->name('blogs');
+Route::get('/contact-us', [WebsiteController::class,'contactUs'])->name('contact.us');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
