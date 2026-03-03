@@ -210,7 +210,7 @@
 		<!-- footer-shape -->
 		<img class="pt-img1 animate-wave" src="{{ asset('assets/images/shap/wave-blue.png') }}" alt="">
 		<img class="pt-img2 animate1" src="{{ asset('assets/images/shap/circle-dots.png') }}" alt="">
-		<img class="pt-img3 animate-rotate" src="{{ asset('assets/images/shap/plus-blue.png') }}" alt="">
+		<img class="pt-img3 animate-rotate" src="{{ asset('assets/images/shap/trangle-orange.png') }}" alt="">
 		<img class="pt-img4 animate-wave" src="{{ asset('assets/images/shap/wave-blue.png') }}" alt="">
 	</footer>
     <!-- Footer END ==== -->
