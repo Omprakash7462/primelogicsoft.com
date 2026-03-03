@@ -156,7 +156,7 @@
 								<li><a href="{{ route('about.us') }}"><span>About Us</span></a></li>
 								<li><a href="{{ route('products') }}"><span>Products</span></a></li>								
 								<li><a href="{{ route('services') }}"><span>Services</span></a></li>								
-								<li><a href="{{ route('blogs') }}"><span>blogs</span></a></li>
+								<li><a href="{{ route('blogs') }}"><span>Blogs</span></a></li>
 								<li><a href="{{ route('contact.us') }}"><span>Contact Us</span></a></li>
 							</ul>
 						</div>
