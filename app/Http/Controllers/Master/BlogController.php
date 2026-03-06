@@ -33,6 +33,9 @@ class BlogController extends Controller
                 'image' => $image,
                 'description' => $request->description,
                 'slug' => Str::slug($request->title),
+                'meta_title' => $request->meta_title,
+                'meta_keywords' => $request->meta_keywords,
+                'meta_description' => $request->meta_description,
             ]);
             return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Blog added successfully', 'error_icon'=>'success']);
         } catch (Exception $error) {
@@ -64,9 +67,12 @@ class BlogController extends Controller
 
             $blog->update([
                 'title' => $request->title,
-                'image' => $image,
-                'description' => $request->description,
                 'slug' => Str::slug($request->title),
+                'image' => $image,
+                'description' => $request->description,                
+                'meta_title' => $request->meta_title,
+                'meta_keywords' => $request->meta_keywords,
+                'meta_description' => $request->meta_description,
             ]);
 
             return redirect()->route('master.blog.index')->with(['message_heading'=> 'Success', 'message'=> 'Blog updated successfully', 'error_icon'=>'success']);

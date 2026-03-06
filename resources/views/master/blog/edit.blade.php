@@ -65,6 +65,41 @@
                                     </div>
                                 @enderror
                             </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-floating">
+                                        <textarea type="text" name="meta_title" class="form-control @error('meta_title') is-invalid @enderror" id="meta_title" placeholder="Meta Title">{{ $blog->meta_title }}</textarea>
+                                        <label for="meta_title">Meta Title</label>
+                                    </div>
+                                    @error('meta_title')
+                                        <div class="form-control-feedback text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-floating">
+                                        <textarea type="text" name="meta_keywords" class="form-control @error('meta_keywords') is-invalid @enderror" id="meta_keywords" placeholder="Meta Keywords">{{ $blog->meta_keywords }}</textarea>
+                                        <label for="meta_keywords">Meta Keywords</label>
+                                    </div>
+                                    @error('meta_keywords')
+                                        <div class="form-control-feedback text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <div class="form-floating">
+                                        <textarea type="text" name="meta_description" class="form-control @error('meta_description') is-invalid @enderror" id="meta_description" placeholder="Meta Description">{{ $blog->meta_description }}</textarea>
+                                        <label for="meta_description">Meta Description</label>
+                                    </div>
+                                    @error('meta_description')
+                                        <div class="form-control-feedback text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-lg rounded-pill">Update Blog</button>

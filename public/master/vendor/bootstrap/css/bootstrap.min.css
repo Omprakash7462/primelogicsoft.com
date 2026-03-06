@@ -2843,6 +2843,13 @@ textarea.form-control-lg {
     line-height: 1.25
 }
 
+textarea.form-control,
+textarea.form-control-plaintext,
+textarea.form-select {
+    height: calc(5rem + 2px) !important;
+    line-height: 1.25
+}
+
 .form-floating>label {
     position: absolute;
     top: 0;

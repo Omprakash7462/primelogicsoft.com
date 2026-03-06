@@ -22,9 +22,12 @@ class blogUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255|unique:blogs,title,'.$this->id,
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:3072',
             'description' => 'required|string',
+            'meta_title' => 'required|string',
+            'meta_keywords' => 'required|string',
+            'meta_description' => 'required|string',
         ];
     }
 }
