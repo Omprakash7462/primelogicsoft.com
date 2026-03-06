@@ -1,6 +1,7 @@
-@section('title', 'Blogs')
-@section('description', 'Blogs')
-@section('keywords', 'Blogs')
+@section('title', $blog->title)
+@section('meta_title', $blog->meta_title)
+@section('meta_description', $blog->meta_description)
+@section('meta_keywords', $blog->meta_keywords)
 @extends('layouts.website')
 @section('content')
 <div class="page-content bg-white">

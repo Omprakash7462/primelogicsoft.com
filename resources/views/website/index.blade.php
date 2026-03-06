@@ -1,6 +1,7 @@
 @section('title', 'Home')
-@section('description', 'Home')
-@section('keywords', 'Home')
+@section('meta_title', 'Home')
+@section('meta_description', 'Home')
+@section('meta_keywords', 'Home')
 @extends('layouts.website')
 @section('content')
 <div class="page-content bg-white">

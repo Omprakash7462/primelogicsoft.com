@@ -1,6 +1,7 @@
 @section('title', 'Contact Us')
-@section('description', 'Contact Us')
-@section('keywords', 'Contact Us')
+@section('meta_title', 'Contact Us')
+@section('meta_description', 'Contact Us')
+@section('meta_keywords', 'Contact Us')
 @extends('layouts.website')
 @section('content')
 <div class="page-content bg-white">

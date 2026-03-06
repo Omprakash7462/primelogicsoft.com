@@ -2,42 +2,33 @@
 <html lang="en">
 <head>
 	
-	<!-- META ============================================= -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
     <!-- PAGE TITLE HERE ============================================= -->
-	<title>{{ config('app.name') }}</title>
-
+	<title>{{ config('app.name') }} -  @yield('title')</title>
     <!-- FAVICONS ICON ============================================= -->
 	<link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon" />
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}" />
-	
+	<link rel="canonical" href="{{ url()->current() }}"/>
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<!-- OG -->
 	<meta name="robots" content="index, follow">
-	<meta name="keywords" content="Clinic, Medical Health Center, Health Dental, Creative, Healthcare, Industry, Lifestyle, Blogging, meditation, Design" />
-	<meta name="author" content="ThemeTrades" />
-	<meta name="description" content="MediTro is a Fully Creative Mobile Responsive HTML Template. It is designed specifically for Clinic, Medical Health Center, Health Dental, Creative, Healthcare, Industry, Lifestyle, Blogging, meditation, Design" />
-	
-	<meta property="og:url" content="index.html"/>
+	<meta name="title" content="@yield('meta_title')"/>
+	<meta name="description" content="@yield('meta_description')"/>
+	<meta name="keywords" content=" @yield('meta_keywords')"/>
+	{{-- <meta name="next-head-count" content="7"/> --}}
+
+	<meta property="og:url" content="https://primelogicsoft.com/"/>
 	<meta property="og:site_name" content="{{ config('app.name') }}"/>
 	<meta property="og:type" content="website"/>
 	<meta property="og:locale" content="en_us"/>
-	<meta property="og:title" content="{{ config('app.name') }}" />
-	<meta property="og:description" content="MediTro is a Fully Creative Mobile Responsive HTML Template. It is designed specifically for Clinic, Medical Health Center, Health Dental, Creative, Healthcare, Industry, Lifestyle, Blogging, meditation, Design"/>
-	<meta property="og:image" content="preview.png"/>
+	<meta property="og:title" content="@yield('meta_title')" />
+	<meta property="og:description" content="@yield('meta_description')"/>
+	<meta property="og:image" content="{{ asset('assets/images/logo.png') }}"/>
 	
-	<meta name="twitter:card" content="summary"/>
-	<meta name="twitter:url" content="index.html"/>
-	<meta name="twitter:creator" content="@themetrades"/>
-	<meta name="twitter:title" content="{{ config('app.name') }}"/>
-	<meta name="twitter:description" content="MediTro is a Fully Creative Mobile Responsive HTML Template. It is designed specifically for Clinic, Medical Health Center, Health Dental, Creative, Healthcare, Industry, Lifestyle, Blogging, meditation, Design"/>
-	
-	<meta name="format-detection" content="telephone=no">
-
 	<!-- All PLUGINS CSS ============================================= -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css') }}">
