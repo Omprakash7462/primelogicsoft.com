@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 
 use App\Http\Controllers\WebsiteController;
 
@@ -25,6 +26,33 @@ use App\Http\Controllers\Master\ReviewMasterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::prefix('primelogicsoft')->name('primelogicsoft.')->group(function () {
+    Route::get('/cache', function() {
+        Artisan::call('config:cache');
+        Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+        Artisan::call('view:clear');
+        return '<center><h2> All Config Cache Cleared....</h2></center>';
+    });
+
+    Route::get('/migration-run', function() {
+        if (app()->environment('local')) {
+            Artisan::call('migrate');
+            return '<center><h2>Migration done...</h2></center>';
+        }
+        return abort(403, 'Unauthorized action.');
+    });
+
+    Route::get('/seed-run', function () {
+        if (app()->environment('local')) {
+            Artisan::call('db:seed');
+            return '<center><h2>Seeding done...</h2></center>';
+        }
+        return abort(403, 'Unauthorized action.');
+    });
+});
 
 Route::get('/', function () {
     return view('welcome');
