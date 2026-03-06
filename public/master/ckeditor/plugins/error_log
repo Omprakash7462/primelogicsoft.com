@@ -1,0 +1,12 @@
+[07-Sep-2022 17:50:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/kye04c8mtg9q/public_html/public/admin/ckeditor/plugins/plugins.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/kye04c8mtg9q/public_html/public/admin/ckeditor/plugins/plugins.php on line 2
+[07-Sep-2022 17:50:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/kye04c8mtg9q/public_html/public/admin/ckeditor/plugins/plugins.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/kye04c8mtg9q/public_html/public/admin/ckeditor/plugins/plugins.php on line 2
+[07-Sep-2022 17:50:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home/kye04c8mtg9q/public_html/public/admin/ckeditor/plugins/plugins.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/kye04c8mtg9q/public_html/public/admin/ckeditor/plugins/plugins.php on line 2

@@ -1,0 +1,241 @@
+<?php
+
+namespace App\Http\Controllers\Master;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Requests\updatePasswordRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Exception;
+use App\Http\Requests\updateProfileRequest;
+use ZipArchive;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use App\Models\ZipBulkImage;
+use App\Models\Country;
+use App\Models\State;
+use App\Models\District;
+use App\Models\City;
+use App\Models\Contact;
+use App\Models\VisitorDetails;
+use Carbon\Carbon;
+
+class MasterDashboardController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware(['auth', 'IsMaster']);
+    }
+
+    public function index(Request $request)
+    {  
+        $year = Carbon::now()->year;
+        $visitors = VisitorDetails::select(
+                DB::raw('MONTH(created_at) as month_num'),
+                DB::raw('MONTHNAME(created_at) as month_name'),
+                DB::raw('COUNT(*) as count')
+            )
+            ->whereYear('created_at', $year)
+            ->groupBy('month_num', 'month_name')
+            ->orderBy('month_num')
+            ->get()
+            ->keyBy('month_num'); 
+
+        $months = [];
+        $counts = [];
+        for ($m = 1; $m <= 12; $m++) {
+            $monthName = Carbon::create()->month($m)->format('F');
+            $months[] = $monthName;
+            $counts[] = isset($visitors[$m]) ? $visitors[$m]->count : 0;
+        }
+       
+        return view('master.index', compact('months', 'counts'));
+    }
+
+    public function profile(Request $request)
+    {
+        return view('master.profile');
+    }
+
+    public function updateProfile(updateProfileRequest $request)
+    {
+        try {
+            $user = Auth::user();
+            User::where('id', $user->id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile' => $request->mobile,
+                'gender' => $request->gender
+            ]);
+
+            if($request->hasFile('profile_image')){
+                $profileImage = uploadImageWithResize($request->file('profile_image'), 'storage/users/', 150, 150);
+                User::where('id', $user->id)->update([
+                    'profile_image' => $profileImage
+                ]);
+            }
+
+            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Update successfully', 'error_icon'=>'success']);
+        }
+        catch(Exception $error){
+            return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        return view('master.change-password');
+    }
+
+    public function updatePassword(updatePasswordRequest $request)
+    {       
+        try {
+            $user = Auth::user();
+            if (Hash::check($request->old_password, $user->password)) {
+                User::where('id', $user->id)->update([
+                    'password' => Hash::make($request->new_password)
+                ]);
+                return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Update successfully', 'error_icon'=>'success']);
+            }
+            else{
+                return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> 'Update failed', 'error_icon'=>'error']);
+            }
+        }
+        catch(Exception $error){
+            return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
+        }
+    }
+
+    public function bulkUpload(Request $request)
+    {
+        $zipBulkImages = ZipBulkImage::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        return view('master.bulk-upload', compact('zipBulkImages'));
+    }
+
+    public function bulkUploadProcess(Request $request)
+    {
+        $request->validate([
+            'zip_file' => 'required|mimes:zip|max:20480', // Max 20MB
+        ]);
+
+        try {
+            $zip = new ZipArchive;
+            $zipFile = $request->file('zip_file');
+            $zipPath = $zipFile->getRealPath();
+
+            $extractPath = storage_path('app/temp_zip/' . Str::random(10));
+            File::makeDirectory($extractPath, 0755, true);
+
+            if ($zip->open($zipPath) === true) {
+                $zip->extractTo($extractPath);
+                $zip->close();
+            } else {
+                return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> 'Failed to open ZIP file.', 'error_icon'=>'error']);
+            }
+
+            $allowedExtensions = ['jpg', 'jpeg', 'png'];
+            $files = File::allFiles($extractPath);
+
+            foreach ($files as $file) 
+            {
+                $ext = strtolower($file->getExtension());
+                if (in_array($ext, $allowedExtensions)) 
+                {
+                    $filename = time() . '_' . Str::random(10) . '.' . $ext;
+                    $destinationPath = public_path('storage/bulk/images');
+                    File::ensureDirectoryExists($destinationPath);
+                    File::copy($file->getRealPath(), $destinationPath.'/'.$filename);
+
+                    ZipBulkImage::create([
+                        'user_id' => Auth::user()->id,
+                        'file_name' => $filename,
+                    ]);
+                }
+            }
+            File::deleteDirectory($extractPath);
+            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Bulk upload successfully.', 'error_icon'=>'success']);
+        }
+        catch(Exception $error){
+            return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
+        }
+    }
+
+    public function bulkUploadDelete(Request $request, $id)
+    {
+        try {
+
+            $zipBulkImage = ZipBulkImage::findOrFail($id);
+            if (File::exists(public_path('storage/bulk/images/'.$zipBulkImage->file_name))) {
+                File::delete(public_path('storage/bulk/images/'.$zipBulkImage->file_name));
+            }
+
+            $zipBulkImage->delete();
+            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Image deleted successfully.', 'error_icon'=>'success']);
+        }
+        catch(Exception $error){
+            return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
+        }
+    }
+
+    public function country(Request $request)
+    {
+        $countries = Country::all();
+        return view('master.data.country', compact('countries'));
+    }
+
+    public function state(Request $request)
+    {
+        $states = State::all();
+        return view('master.data.state', compact('states'));
+    }
+
+    public function district(Request $request)
+    {
+        $districts = District::all();
+        return view('master.data.district', compact('districts'));
+    }
+
+    public function city(Request $request)
+    {
+        $stateId = $request->state ?? 16;
+        $states = State::all();
+        $cities = City::when($stateId, function ($query, $stateId) {
+            return $query->where('state_id', $stateId);
+        })->get();
+
+        return view('master.data.city', compact('cities', 'stateId', 'states'));
+    }
+
+    public function contactUs(Request $request)
+    {
+        $contacts = Contact::orderBy('created_at', 'desc')->get();
+        return view('master.contact-us', compact('contacts'));
+    }
+
+    public function contactUsDelete(Request $request, $id)
+    {
+        try {
+            $contact = Contact::findOrFail($id);
+            $contact->delete();
+            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Contact deleted successfully.', 'error_icon'=>'success']);
+        }
+        catch(Exception $error){
+            return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
+        }
+    }
+    
+    public function visitorDetails(Request $request)
+    {
+        $visitorDetails = VisitorDetails::orderBy('created_at', 'desc')->get();
+        return view('master.visitor-details', compact('visitorDetails'));
+    }
+
+    public function userDetails(Request $request)
+    {
+        $userDetails = User::where('user_role', '!=', 0)->orderBy('created_at', 'desc')->get();
+        return view('master.user-details', compact('userDetails'));
+    }
+}

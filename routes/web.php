@@ -5,6 +5,16 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\WebsiteController;
 
+use App\Http\Controllers\HomeController;
+
+use App\Http\Controllers\Master\CkeditorUploadController;
+use App\Http\Controllers\Master\MasterDashboardController;
+use App\Http\Controllers\Master\BlogController;
+use App\Http\Controllers\Master\CategoryController;
+use App\Http\Controllers\Master\DestinationImportController;
+use App\Http\Controllers\Master\DestinationManagementController;
+use App\Http\Controllers\Master\ReviewMasterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +36,76 @@ Route::get('/products', [WebsiteController::class,'products'])->name('products')
 Route::get('/services', [WebsiteController::class,'services'])->name('services');
 Route::get('/blogs', [WebsiteController::class,'blogs'])->name('blogs');
 Route::get('/contact-us', [WebsiteController::class,'contactUs'])->name('contact.us');
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+Route::post('ckeditor/upload', [CkeditorUploadController::class, 'index'])->name('ckeditor.upload');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth', 'IsMaster'])->group(function () {
+    Route::prefix('master')->name('master.')->group(function () {
+        Route::get('/dashboard', [MasterDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/profile', [MasterDashboardController::class, 'profile'])->name('profile');
+        Route::post('/update/profile', [MasterDashboardController::class, 'updateProfile'])->name('update.profile');
+        Route::get('/change/password', [MasterDashboardController::class, 'changePassword'])->name('change.password');
+        Route::post('/update/password', [MasterDashboardController::class, 'updatePassword'])->name('update.password');
+        
+        Route::get('/contact-us', [MasterDashboardController::class, 'contactUs'])->name('contact.us');
+        Route::get('/contact-us/delete/{id}', [MasterDashboardController::class, 'contactUsDelete'])->name('contact.us.delete');
+
+        Route::get('/bulk/upload', [MasterDashboardController::class, 'bulkUpload'])->name('bulk.upload');
+        Route::post('/bulk/upload/process', [MasterDashboardController::class, 'bulkUploadProcess'])->name('bulk.upload.process');
+        Route::get('/bulk/upload/delete/{id}', [MasterDashboardController::class, 'bulkUploadDelete'])->name('bulk.upload.delete');
+
+        Route::get('/user/details', [MasterDashboardController::class, 'userDetails'])->name('user.details');
+        Route::get('/visitor/details', [MasterDashboardController::class, 'visitorDetails'])->name('visitor.details');
+        
+        Route::prefix('data')->name('data.')->group(function () {
+            Route::get('/country', [MasterDashboardController::class, 'country'])->name('country');
+            Route::get('/state', [MasterDashboardController::class, 'state'])->name('state');
+            Route::get('/district', [MasterDashboardController::class, 'district'])->name('district');
+            Route::get('/city', [MasterDashboardController::class, 'city'])->name('city');
+        });
+
+        Route::prefix('category')->name('category.')->group(function () {
+            Route::get('/index', [CategoryController::class, 'index'])->name('index');
+            Route::post('/submit', [CategoryController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [CategoryController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
+        });
+
+        Route::prefix('destination-import')->name('destination.import.')->group(function () {
+            Route::get('/', [DestinationImportController::class, 'index'])->name('index');
+            Route::post('/upload', [DestinationImportController::class, 'upload'])->name('upload');
+        });
+
+        Route::prefix('destination-management')->name('destination.management.')->group(function () {
+            Route::get('/', [DestinationManagementController::class, 'index'])->name('index');
+            Route::get('/create', [DestinationManagementController::class, 'create'])->name('create');
+            Route::post('/submit', [DestinationManagementController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [DestinationManagementController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [DestinationManagementController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [DestinationManagementController::class, 'delete'])->name('delete');
+        });
+
+        Route::prefix('blog')->name('blog.')->group(function () {
+            Route::get('/index', [BlogController::class, 'index'])->name('index');
+            Route::post('/submit', [BlogController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [BlogController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('delete');
+        });
+
+        Route::prefix('review-master')->name('review-master.')->group(function () {
+            Route::get('/index', [ReviewMasterController::class, 'index'])->name('index');
+            Route::post('/submit', [ReviewMasterController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [ReviewMasterController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [ReviewMasterController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [ReviewMasterController::class, 'delete'])->name('delete');
+        });
+    });
+});
+
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
