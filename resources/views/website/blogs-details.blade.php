@@ -28,7 +28,7 @@
     </div>
   
     <section class="section-area section-sp1 bg-white">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-lg-7 col-xl-8 mb-30 mb-md-50">
                     <!-- blog start -->
