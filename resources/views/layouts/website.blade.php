@@ -30,9 +30,9 @@
 	<meta property="og:image" content="{{ asset('assets/images/logo.png') }}"/>
 	
 	<!-- All PLUGINS CSS ============================================= -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=2') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=2') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=2') }}">
 	
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
