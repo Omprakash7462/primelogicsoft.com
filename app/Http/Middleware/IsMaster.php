@@ -16,12 +16,9 @@ class IsMaster
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->user_role == 0 || Auth::user()->user_role == 1)
-        {
+        if (Auth::check()) {
             return $next($request);
-        }
-        else
-        {
+        } else {
             return redirect()->route('home');
         }
     }
