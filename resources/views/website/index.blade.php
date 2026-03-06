@@ -469,86 +469,35 @@
 	<section class="section-area section-sp1 blog-area" style="background-image: url({{ asset('assets/images/background/line-bg2.png') }}); background-position: center; background-size: cover;">
 		<div class="container-fluid">
 			<div class="heading-bx text-center">
-				<h6 class="title-ext text-secondary">Latest News</h6>
-				<h2 class="title">Our Latest News</h2>
+				<h6 class="title-ext text-secondary">Latest Blogs</h6>
+				<h2 class="title">Our Latest Blogs</h2>
 			</div>
 			<div class="swiper-container blog-slide">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="blog-card">
-							<div class="post-media">
-								<a href="blog-details.html"><img src="{{ asset('assets/images/blog/grid/pic1.jpg') }}" alt=""></a>
-							</div>
-							<div class="post-info">
-								<ul class="post-meta">
-									<li class="author"><a href="blog-details.html"><img src="{{ asset('assets/images/testimonials/pic1.jpg') }}" alt=""> John deo</a></li>
-									<li class="date"><i class="far fa-calendar-alt"></i> 21 July 2021</li>
-								</ul>
-								<h5 class="post-title"><a href="blog-details.html">In this hospital there are special surgeon</a></h5>		
-								<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-							</div>
-						</div>							
-					</div>
-					<div class="swiper-slide">
-						<div class="blog-card">
-							<div class="post-media">
-								<a href="blog-details.html"><img src="{{ asset('assets/images/blog/grid/pic2.jpg') }}" alt=""></a>
-							</div>
-							<div class="post-info">
-								<ul class="post-meta">
-									<li class="author"><a href="blog-details.html"><img src="{{ asset('assets/images/testimonials/pic2.jpg') }}" alt=""> Peter Packer</a></li>
-									<li class="date"><i class="far fa-calendar-alt"></i> 20 July 2021</li>
-								</ul>
-								<h5 class="post-title"><a href="blog-details.html">Can you get a diflucan prescription online?</a></h5>		
-								<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>			
-							</div>
+					@foreach ($blogs as $blog)
+						<div class="swiper-slide">
+							<div class="blog-card">
+								<div class="post-media">
+									<a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}">
+										<img src="{{ asset('storage/blogs/'.$blog->image) }}" alt="{{ $blog->title }}">
+									</a>
+								</div>
+								<div class="post-info">
+									<ul class="post-meta">
+										<li class="author"><i class="far fa-user"></i> Admin</li>
+                                    	<li class="date"><i class="far fa-calendar-alt"></i> {{ date('d M Y', strtotime($blog->created_at)) }}</li>
+									</ul>
+									<h5 class="post-title">
+										<a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}">
+											{{ $blog->title }}
+										</a>
+									</h5>
+									<p>{!! Str::limit(strip_tags($blog->description), 240) !!}</p>		
+									<a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
+								</div>
+							</div>							
 						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="blog-card">
-							<div class="post-media">
-								<a href="blog-details.html"><img src="{{ asset('assets/images/blog/grid/pic3.jpg') }}" alt=""></a>
-							</div>
-							<div class="post-info">
-								<ul class="post-meta">
-									<li class="author"><a href="blog-details.html"><img src="{{ asset('assets/images/testimonials/pic3.jpg') }}" alt=""> Sonar Moyna</a></li>
-									<li class="date"><i class="far fa-calendar-alt"></i> 19 July 2021</li>
-								</ul>
-								<h5 class="post-title"><a href="blog-details.html">Why Is Skin Surgeon Considered Underrated</a></h5>		
-								<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="blog-card">
-							<div class="post-media">
-								<a href="blog-details.html"><img src="{{ asset('assets/images/blog/grid/pic4.jpg') }}" alt=""></a>
-							</div>
-							<div class="post-info">
-								<ul class="post-meta">
-									<li class="author"><a href="blog-details.html"><img src="{{ asset('assets/images/testimonials/pic4.jpg') }}" alt=""> Kalina Mollika</a></li>
-									<li class="date"><i class="far fa-calendar-alt"></i> 18 July 2021</li>
-								</ul>
-								<h5 class="post-title"><a href="blog-details.html">Dental Care for Women is very important</a></h5>		
-								<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-							</div>
-						</div>						
-					</div>
-					<div class="swiper-slide">
-						<div class="blog-card">
-							<div class="post-media">
-								<a href="blog-details.html"><img src="{{ asset('assets/images/blog/grid/pic5.jpg') }}" alt=""></a>
-							</div>
-							<div class="post-info">
-								<ul class="post-meta">
-									<li class="author"><a href="blog-details.html"><img src="{{ asset('assets/images/testimonials/pic5.jpg') }}" alt=""> Michel </a></li>
-									<li class="date"><i class="far fa-calendar-alt"></i> 17 July 2021</li>
-								</ul>
-								<h5 class="post-title"><a href="blog-details.html">Health Will Be A Thing Of The Past And Here's Why</a></h5>		
-								<a href="blog-details.html" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
-							</div>
-						</div>					
-					</div>
+					@endforeach					
 				</div>
 			</div>
 		</div>

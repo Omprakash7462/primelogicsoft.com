@@ -9,7 +9,8 @@ class WebsiteController extends Controller
 {
     public function index(Request $request)
     {
-        return view("website.index");
+        $blogs = Blog::orderBy("id", "desc")->take(3)->get();
+        return view("website.index", compact("blogs"));
     }
 
     public function aboutUs(Request $request)

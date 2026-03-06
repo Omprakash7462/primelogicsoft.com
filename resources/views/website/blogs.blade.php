@@ -41,7 +41,7 @@
                             </div>
                             <div class="post-info">
                                 <ul class="post-meta">
-                                    <li class="author"><a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}"><i class="far fa-user"></i> Admin</a></li>
+                                    <li class="author"><i class="far fa-user"></i> Admin</li>
                                     <li class="date"><i class="far fa-calendar-alt"></i> {{ date('d M Y', strtotime($blog->created_at)) }}</li>
                                 </ul>
                                 <h4 class="post-title"><a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}">{{ $blog->title }}</a></h4>
