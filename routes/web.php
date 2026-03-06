@@ -63,6 +63,7 @@ Route::get('/about-us', [WebsiteController::class,'aboutUs'])->name('about.us');
 Route::get('/products', [WebsiteController::class,'products'])->name('products');
 Route::get('/services', [WebsiteController::class,'services'])->name('services');
 Route::get('/blogs', [WebsiteController::class,'blogs'])->name('blogs');
+Route::get('/blogs/details/{slug}', [WebsiteController::class,'blogsDetails'])->name('blogs.details');
 Route::get('/contact-us', [WebsiteController::class,'contactUs'])->name('contact.us');
 
 Auth::routes();

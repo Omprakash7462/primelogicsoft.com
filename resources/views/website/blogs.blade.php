@@ -27,6 +27,40 @@
         <!-- Breadcrumb row END -->
     </div>
   
+    <section class="section-area section-sp1">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach ($blogs as $blog)
+                    <div class="col-xl-4 col-md-6">
+                        <div class="blog-card mb-30">
+                            <div class="post-media">
+                                <a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}">
+                                    <img src="{{ asset('storage/blogs/'.$blog->image) }}" alt="{{ $blog->title }}">
+                                </a>
+                            </div>
+                            <div class="post-info">
+                                <ul class="post-meta">
+                                    <li class="author"><a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}"><i class="far fa-user"></i> Admin</a></li>
+                                    <li class="date"><i class="far fa-calendar-alt"></i> {{ date('d M Y', strtotime($blog->created_at)) }}</li>
+                                </ul>
+                                <h4 class="post-title"><a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}">{{ $blog->title }}</a></h4>
+                                <p>{!! Str::limit(strip_tags($blog->description), 240) !!}</p>
+                                <a href="{{ route('blogs.details', ['slug'=> $blog->slug]) }}" class="btn btn-outline-primary btn-sm">Read More <i class="btn-icon-bx fas fa-chevron-right"></i></a>		
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pagination-bx text-center mb-30 clearfix">
+                        {{ $blogs->links('vendor.pagination.bootstrap-5') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 		
 </div>
 @endsection

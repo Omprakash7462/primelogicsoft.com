@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 
 class WebsiteController extends Controller
 {
@@ -28,7 +29,22 @@ class WebsiteController extends Controller
 
     public function blogs(Request $request)
     {
-        return view("website.blogs");
+        $blogs = Blog::orderBy("id", "desc")->paginate(9);
+        return view("website.blogs", compact("blogs"));
+    }
+
+    public function blogsDetails(Request $request, $slug)
+    {
+        $searchTitle = $request->title ?? null;
+        $blogs = Blog::when($searchTitle, function ($query) use ($searchTitle) {
+                $query->where('title', 'like', '%' . $searchTitle . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->take(9)
+            ->get();
+
+        $blog = Blog::where('slug', $slug)->first();
+        return view('website.blogs-details', compact('blog', 'blogs', 'searchTitle'));
     }
 
     public function contactUs(Request $request)
