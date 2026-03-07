@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	
+<head>	
     <!-- PAGE TITLE HERE ============================================= -->
 	<title>{{ config('app.name') }} -  @yield('title')</title>
     <!-- FAVICONS ICON ============================================= -->
@@ -11,7 +10,6 @@
 	<!-- META ============================================= -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- OG -->
@@ -19,8 +17,6 @@
 	<meta name="title" content="@yield('meta_title')"/>
 	<meta name="description" content="@yield('meta_description')"/>
 	<meta name="keywords" content=" @yield('meta_keywords')"/>
-	{{-- <meta name="next-head-count" content="7"/> --}}
-
 	<meta property="og:url" content="https://primelogicsoft.com/"/>
 	<meta property="og:site_name" content="{{ config('app.name') }}"/>
 	<meta property="og:type" content="website"/>
@@ -29,16 +25,14 @@
 	<meta property="og:description" content="@yield('meta_description')"/>
 	<meta property="og:image" content="{{ asset('assets/images/logo.png') }}"/>
 	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ asset('assets/fonts/font.css') }}">
 	<!-- All PLUGINS CSS ============================================= -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=2') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=2') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=2') }}">
-	
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=4') }}">
 </head>
 <body>
 <div class="page-wraper">
@@ -122,13 +116,13 @@
 		<div class="footer-top">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-xl-3 col-lg-3 col-md-6">
+					<div class="col-xl-6 col-lg-6 col-md-6">
 						<div class="widget widget_info">
 							<div class="footer-logo">
 								<a href="index-2.html"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
 							</div>
 							<div class="ft-contact">
-								<p>Primelogicsoft is a forward-thinking IT development company dedicated to building scalable, secure, and high-performance digital solutions..</p>
+								<p>Primelogicsoft is a forward-thinking IT development company dedicated to building scalable, secure, and high-performance digital solutions. We specialize in transforming ideas into powerful software products that help businesses grow, automate processes, and stay ahead in the digital era.</p>
 								<div class="contact-bx">
 									<div class="icon"><i class="fas fa-envelope"></i></div>
 									<div class="contact-number">
@@ -151,20 +145,7 @@
 								<li><a href="{{ route('contact.us') }}"><span>Contact Us</span></a></li>
 							</ul>
 						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-6">
-						<div class="widget footer_widget">
-							<h3 class="footer-title">Our Service</h3>
-							<ul>
-								<li><a href="service-detail.html"><span>Website Development Services</span></a></li>
-								<li><a href="service-detail.html"><span>Mobile Development Services</span></a></li>
-								<li><a href="service-detail.html"><span>Digital Marketing Solutions</span></a></li>
-								<li><a href="service-detail.html"><span>Custom Website Development</span></a></li>
-								<li><a href="service-detail.html"><span>SAAS Development Services</span></a></li>
-								<li><a href="service-detail.html"><span>Best E-commerce Website Design Services</span></a></li>
-							</ul>
-						</div>
-					</div>
+					</div>					
 					<div class="col-xl-3 col-lg-3 col-md-6">
                         <div class="widget widget_form">
                             <h3 class="footer-title">Subcribe</h3>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class destinationUploadPhotoRequest extends FormRequest
+class testimonialsUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,11 @@ class destinationUploadPhotoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'destination_id' => 'required|integer|exists:destination_masters,id',
-            'destination_photo' => 'required|image|mimes:jpeg,png,jpg|max:5120',
+            'name'       => 'required|string|max:255',
+            'occupation' => 'required|string|max:255',
+            'email'      => 'required|string|max:255|unique:testimonials,email,'.$this->id,
+            'mobile'     => 'required|string|max:20',
+            'message'    => 'required|string|max:500',
         ];
     }
 }

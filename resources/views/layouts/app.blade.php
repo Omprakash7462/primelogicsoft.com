@@ -51,31 +51,7 @@
                 </div><!-- End Logo -->
                 
                 <nav class="header-nav ms-auto">
-                    <ul class="d-flex align-items-center">                        
-                       {{-- <li class="nav-item d-block d-lg-none">
-                            <a class="nav-link nav-icon search-bar-toggle " href="#">
-                                <i class="bi bi-search"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                                <i class="bi bi-bell"></i>
-                                <span class="badge bg-primary badge-number">0</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-                                <li class="dropdown-header">
-                                    You have 4 new notifications
-                                    <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View
-                                            all</span></a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li class="dropdown-footer">
-                                    <a href="#">Show all notifications</a>
-                                </li>
-                            </ul>
-                        </li> --}}
+                    <ul class="d-flex align-items-center">                       
                         <li class="nav-item dropdown pe-3">
                             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                                 <img src="{{ asset('storage/users/'.Auth::user()->profile_image) }}" alt="Profile" class="rounded-circle">
@@ -125,71 +101,22 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item" id="master-data">
-                        <a class="nav-link collapsed" data-bs-target="#master-data-nav" data-bs-toggle="collapse" href="javascript:void(0)">
-                            <i class="bi bi-menu-button-wide"></i><span>Master Data</span><i class="bi bi-chevron-down ms-auto"></i>
-                        </a>
-                        <ul id="master-data-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                            <li id="country">
-                                <a href="{{ route('master.data.country') }}">
-                                    <i class="bi bi-circle"></i><span>Country</span>
-                                </a>
-                            </li>
-                            <li id="state">
-                                <a href="{{ route('master.data.state') }}">
-                                    <i class="bi bi-circle"></i><span>State</span>
-                                </a>
-                            </li>
-                            <li id="district">
-                                <a href="{{ route('master.data.district') }}">
-                                    <i class="bi bi-circle"></i><span>District</span>
-                                </a>
-                            </li>
-                            <li id="city">
-                                <a href="{{ route('master.data.city') }}">
-                                    <i class="bi bi-circle"></i><span>City</span>
-                                </a>
-                            </li>                            
-                        </ul>
-                    </li>
-                    <li class="nav-item" id="destination-master">
-                        <a class="nav-link collapsed" data-bs-target="#destination-master-nav" data-bs-toggle="collapse" href="javascript:void(0)">
-                            <i class="bi bi-map"></i><span>Destination Master</span><i class="bi bi-chevron-down ms-auto"></i>
-                        </a>
-                        <ul id="destination-master-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                            <li id="category">
-                                <a href="{{ route('master.category.index') }}">
-                                    <i class="bi bi-circle"></i><span>Category</span>
-                                </a>
-                            </li>
-                            <li id="destination-import">
-                                <a href="{{ route('master.destination.import.index') }}">
-                                    <i class="bi bi-circle"></i><span>Destination Import</span>
-                                </a>
-                            </li>
-                            <li id="destination-management">
-                                <a href="{{ route('master.destination.management.index') }}">
-                                    <i class="bi bi-circle"></i><span>Destination Management</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item" id="bulk-upload">
-                        <a class="nav-link collapsed" href="{{ route('master.bulk.upload') }}">
-                            <i class="bi bi-cloud-arrow-up"></i>
-                            <span>Bulk Upload</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" id="user-details">
-                        <a class="nav-link collapsed" href="{{ route('master.user.details') }}">
-                            <i class="bi bi-people-fill"></i>
-                            <span>User Details</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" id="visitor-details">
+                    <li class="nav-item" id="products">
                         <a class="nav-link collapsed" href="{{ route('master.visitor.details') }}">
-                            <i class="bi bi-person-lines-fill"></i>
-                            <span>Visitor Details</span>
+                            <i class="bi bi-layers"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" id="projects">
+                        <a class="nav-link collapsed" href="{{ route('master.visitor.details') }}">
+                            <i class="bi bi-intersect"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" id="services">
+                        <a class="nav-link collapsed" href="{{ route('master.visitor.details') }}">
+                            <i class="bi bi-life-preserver"></i>
+                            <span>Services</span>
                         </a>
                     </li>
                     <li class="nav-item" id="blog">
@@ -198,12 +125,19 @@
                             <span>Blog</span>
                         </a>
                     </li>
-                    <li class="nav-item" id="reviewMaster">
-                        <a class="nav-link collapsed" href="{{ route('master.review-master.index') }}">
+                    <li class="nav-item" id="testimonials">
+                        <a class="nav-link collapsed" href="{{ route('master.testimonials.index') }}">
                             <i class="bi bi-stars"></i>
-                            <span>Review Master</span>
+                            <span>Testimonials</span>
                         </a>
-                    </li> 
+                    </li>
+                    <li class="nav-item" id="visitor-details">
+                        <a class="nav-link collapsed" href="{{ route('master.visitor.details') }}">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span>Visitor Details</span>
+                        </a>
+                    </li>
+                    
                     <li class="nav-item" id="contact-us">
                         <a class="nav-link collapsed" href="{{ route('master.contact.us') }}">
                             <i class="bi bi-envelope"></i>

@@ -10,11 +10,11 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Master\CkeditorUploadController;
 use App\Http\Controllers\Master\MasterDashboardController;
-use App\Http\Controllers\Master\BlogController;
+use App\Http\Controllers\Master\BlogsController;
 use App\Http\Controllers\Master\CategoryController;
 use App\Http\Controllers\Master\DestinationImportController;
 use App\Http\Controllers\Master\DestinationManagementController;
-use App\Http\Controllers\Master\ReviewMasterController;
+use App\Http\Controllers\Master\TestimonialsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,19 +122,19 @@ Route::middleware(['auth', 'IsMaster'])->group(function () {
         });
 
         Route::prefix('blog')->name('blog.')->group(function () {
-            Route::get('/index', [BlogController::class, 'index'])->name('index');
-            Route::post('/submit', [BlogController::class, 'submit'])->name('submit');
-            Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('edit');
-            Route::post('/update/{id}', [BlogController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('delete');
+            Route::get('/index', [BlogsController::class, 'index'])->name('index');
+            Route::post('/submit', [BlogsController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [BlogsController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [BlogsController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [BlogsController::class, 'delete'])->name('delete');
         });
 
-        Route::prefix('review-master')->name('review-master.')->group(function () {
-            Route::get('/index', [ReviewMasterController::class, 'index'])->name('index');
-            Route::post('/submit', [ReviewMasterController::class, 'submit'])->name('submit');
-            Route::get('/edit/{id}', [ReviewMasterController::class, 'edit'])->name('edit');
-            Route::post('/update/{id}', [ReviewMasterController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [ReviewMasterController::class, 'delete'])->name('delete');
+        Route::prefix('testimonials')->name('testimonials.')->group(function () {
+            Route::get('/index', [TestimonialsController::class, 'index'])->name('index');
+            Route::post('/submit', [TestimonialsController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [TestimonialsController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [TestimonialsController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [TestimonialsController::class, 'delete'])->name('delete');
         });
     });
 });

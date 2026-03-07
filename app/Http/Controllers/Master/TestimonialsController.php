@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Models\ReviewMaster;
+use App\Models\Testimonial;
 use Exception;
-use App\Http\Requests\reviewCreateRequest;
-use App\Http\Requests\reviewUpdateRequest;
+use App\Http\Requests\testimonialsCreateRequest;
+use App\Http\Requests\testimonialsUpdateRequest;
 use Illuminate\Support\Facades\File;
 
-class ReviewMasterController extends Controller
+class TestimonialsController extends Controller
 {
     public function __construct()
     {
@@ -22,15 +22,15 @@ class ReviewMasterController extends Controller
 
     public function index(Request $request)
     {
-        $reviewMasters = ReviewMaster::orderBy('id', 'DESC')->get();
-        return view('master.review-master.index', compact('reviewMasters'));
+        $testimonials = Testimonial::orderBy('id', 'DESC')->get();
+        return view('master.testimonials.index', compact('testimonials'));
     }
 
-    public function submit(reviewCreateRequest $request)
+    public function submit(testimonialsCreateRequest $request)
     {
         try {
-            $profileImage = createInitialNameImageWithResize($request->name, 'storage/review-master/', 200, 200);
-            ReviewMaster::create([
+            $profileImage = createInitialNameImageWithResize($request->name, 'storage/testimonial/', 200, 200);
+            Testimonial::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
@@ -40,7 +40,7 @@ class ReviewMasterController extends Controller
                 'post_by' => Auth::user()->id,
                 'is_show' => 1,
             ]);
-            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Review added successfully', 'error_icon'=>'success']);
+            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Testimonial added successfully', 'error_icon'=>'success']);
         } catch (Exception $error) {
             return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
         }
@@ -50,23 +50,23 @@ class ReviewMasterController extends Controller
     public function edit(Request $request, $id)
     {
         try {
-            $reviewMaster = ReviewMaster::find($id);
-            return view('master.review-master.edit', compact('reviewMaster'));
+            $testimonial = Testimonial::find($id);
+            return view('master.testimonials.edit', compact('testimonial'));
         } catch (Exception $error) {
             return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
         }
     }
 
-    public function update(reviewUpdateRequest $request, $id)
+    public function update(testimonialsUpdateRequest $request, $id)
     {
         try {
-            $reviewMaster = ReviewMaster::find($id);
-            if (File::exists(public_path('storage/review-master/'.$reviewMaster->profile))) {
-                File::delete(public_path('storage/review-master/'.$reviewMaster->profile));
+            $testimonial = Testimonial::find($id);
+            if (File::exists(public_path('storage/testimonial/'.$testimonial->profile))) {
+                File::delete(public_path('storage/testimonial/'.$testimonial->profile));
             }
-            $profileImage = createInitialNameImageWithResize($request->name, 'storage/review-master/', 200, 200);
+            $profileImage = createInitialNameImageWithResize($request->name, 'storage/testimonial/', 200, 200);
 
-            $reviewMaster->update([
+            $testimonial->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
@@ -75,7 +75,7 @@ class ReviewMasterController extends Controller
                 'profile' => $profileImage,
             ]);
 
-            return redirect()->route('master.review-master.index')->with(['message_heading'=> 'Success', 'message'=> 'Review updated successfully', 'error_icon'=>'success']);
+            return redirect()->route('master.testimonials.index')->with(['message_heading'=> 'Success', 'message'=> 'Testimonial updated successfully', 'error_icon'=>'success']);
         } catch (Exception $error) {
             return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
         }
@@ -84,13 +84,13 @@ class ReviewMasterController extends Controller
     public function delete(Request $request, $id)
     {
         try {
-            $reviewMaster = ReviewMaster::find($id);
-            if (File::exists(public_path('storage/review-master/'.$reviewMaster->profile))) {
-                File::delete(public_path('storage/review-master/'.$reviewMaster->profile));
+            $testimonial = Testimonial::find($id);
+            if (File::exists(public_path('storage/testimonial/'.$testimonial->profile))) {
+                File::delete(public_path('storage/testimonial/'.$testimonial->profile));
             }
-            $reviewMaster->delete();
+            $testimonial->delete();
 
-            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Review deleted successfully', 'error_icon'=>'success']);
+            return redirect()->back()->with(['message_heading'=> 'Success', 'message'=> 'Testimonial deleted successfully', 'error_icon'=>'success']);
         } catch (Exception $error) {
             return redirect()->back()->with(['message_heading'=> 'Error', 'message'=> $error->getMessage(), 'error_icon'=>'error']);
         }

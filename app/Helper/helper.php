@@ -46,3 +46,29 @@ function uploadImageWithResize($uploadFile, $uploadPath,  $sizeWidth, $sizeHeigh
     $imgFile->save(public_path($uploadPath.'/'.$imageName));
     return $imageName;
 }
+
+function createInitialNameImageWithResize($name, $uploadPath, $sizeWidth, $sizeHeight)
+{
+    $path = public_path($uploadPath);
+    if (!File::exists($path)) {
+        File::makeDirectory($path, 0777, true, true);
+    }
+
+    $firstLetter = strtoupper(substr($name, 0, 1));
+    $width = $sizeWidth;
+    $height = $sizeHeight;
+    $backgroundColor = '#24820c';
+    $img = Image::canvas($width, $height, $backgroundColor);
+    $img->text($firstLetter, $width / 2, $height / 2, function ($font) {
+        $font->file(public_path('fonts/Poppins-Bold.ttf'));
+        $font->size(80);
+        $font->color('#ffffff');
+        $font->align('center');
+        $font->valign('center');
+    });
+
+    $fileName = time() . '.png';
+    $path = public_path("{$uploadPath}/{$fileName}");
+    $img->save($path);
+    return $fileName;
+}

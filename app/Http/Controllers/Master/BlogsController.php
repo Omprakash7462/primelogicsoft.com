@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\blogUpdateRequest;
 
-class BlogController extends Controller
+class BlogsController extends Controller
 {
     public function __construct()
     {

@@ -1,18 +1,18 @@
-@section('title', 'Review Master')
-@section('description', 'Review Master')
-@section('keywords', 'Review Master')
+@section('title', 'Testimonials')
+@section('description', 'Testimonials')
+@section('keywords', 'Testimonials')
 @extends('layouts.app')
 @section('content')
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Review Master</h1>
+                <h1>Testimonials</h1>
             </div>
             <div class="col-sm-6">
                 <nav class="d-flex justify-content-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('master.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Review Master</li>
+                        <li class="breadcrumb-item active">Testimonials</li>
                     </ol>
                 </nav>
             </div>
@@ -23,10 +23,10 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Add New Review</h5>
+                        <h5 class="card-title mb-0">Add New Testimonial</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('master.review-master.submit') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('master.testimonials.submit') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-4">
@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary btn-lg rounded-pill">Add Review</button>
+                                <button type="submit" class="btn btn-primary btn-lg rounded-pill">Add Testimonial</button>
                             </div>
                         </form>
                     </div>
@@ -104,7 +104,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Review List</h5>
+                                <h5 class="card-title mb-0">Testimonials List</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -122,18 +122,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($reviewMasters as $key => $reviewMaster)
+                                            @foreach ($testimonials as $key => $testimonial)
                                                 <tr>
                                                     <th scope="row">{{ $key + 1 }}</th>
-                                                    <td> {{ $reviewMaster->name }} </td>
-                                                    <td> {{ $reviewMaster->email }} </td>
-                                                    <td> {{ $reviewMaster->mobile }} </td>
-                                                    <td> {{ $reviewMaster->occupation }} </td>
-                                                    <td> {{ $reviewMaster->message }} </td>
-                                                    <td>{{ date('d-m-Y', strtotime($reviewMaster->created_at)) }}</td>
+                                                    <td> {{ $testimonial->name }} </td>
+                                                    <td> {{ $testimonial->email }} </td>
+                                                    <td> {{ $testimonial->mobile }} </td>
+                                                    <td> {{ $testimonial->occupation }} </td>
+                                                    <td> {{ $testimonial->message }} </td>
+                                                    <td>{{ date('d-m-Y', strtotime($testimonial->created_at)) }}</td>
                                                     <td>
-                                                        <a href="{{ route('master.review-master.edit', $reviewMaster->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
-                                                        <a href="{{ route('master.review-master.delete', $reviewMaster->id) }}" class="btn btn-danger btn-sm confirm-delete"><i class="bi bi-trash"></i></a>
+                                                        <a href="{{ route('master.testimonials.edit', $testimonial->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
+                                                        <a href="{{ route('master.testimonials.delete', $testimonial->id) }}" class="btn btn-danger btn-sm confirm-delete"><i class="bi bi-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -150,6 +150,6 @@
 @endsection
 @section('script')
 <script>
-    $('#reviewMaster a').removeClass('collapsed');
+    $('#testimonials a').removeClass('collapsed');
 </script>
 @endsection
