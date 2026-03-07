@@ -1,7 +1,7 @@
-@section('title', 'Services')
-@section('meta_title', 'Services')
-@section('meta_description', 'Services')
-@section('meta_keywords', 'Services')
+@section('title', 'Prime Logic Soft Services | Web, Mobile App & SaaS Development')
+@section('meta_title', 'Prime Logic Soft Services | Web Development & Digital Solutions')
+@section('meta_description', 'Prime Logic Soft offers professional website development, mobile app development, SaaS development, e-commerce solutions, and digital marketing services to help businesses grow digitally.')
+@section('meta_keywords', 'Prime Logic Soft services, website development services, mobile app development company, SaaS development services, e-commerce website development, digital marketing solutions')
 @extends('layouts.website')
 @section('content')
 <div class="page-content bg-white">

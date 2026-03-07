@@ -1,7 +1,7 @@
-@section('title', 'Contact Us')
-@section('meta_title', 'Contact Us')
-@section('meta_description', 'Contact Us')
-@section('meta_keywords', 'Contact Us')
+@section('title', 'Contact Prime Logic Soft | Get in Touch for Web & Software Development')
+@section('meta_title', 'Contact Prime Logic Soft | Web & Software Development Company')
+@section('meta_description', 'Contact Prime Logic Soft for website development, mobile app development, SaaS solutions, and digital marketing services. Get in touch with our team for your next digital project.')
+@section('meta_keywords', 'Contact Prime Logic Soft, web development company contact, software development services contact, mobile app development company, digital marketing services contact')
 @extends('layouts.website')
 @section('content')
 <div class="page-content bg-white">

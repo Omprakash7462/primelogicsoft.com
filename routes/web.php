@@ -61,7 +61,11 @@ Route::get('/', function () {
 Route::get('/', [WebsiteController::class,'index'])->name('index');
 Route::get('/about-us', [WebsiteController::class,'aboutUs'])->name('about.us');
 Route::get('/products', [WebsiteController::class,'products'])->name('products');
+Route::get('/products/details/{slug}', [WebsiteController::class,'productsDetails'])->name('products.details');
+Route::get('/projects', [WebsiteController::class,'projects'])->name('projects');
+Route::get('/projects/details/{slug}', [WebsiteController::class,'projectsDetails'])->name('projects.details');
 Route::get('/services', [WebsiteController::class,'services'])->name('services');
+Route::get('/services/details/{slug}', [WebsiteController::class,'servicesDetails'])->name('services.details');
 Route::get('/blogs', [WebsiteController::class,'blogs'])->name('blogs');
 Route::get('/blogs/details/{slug}', [WebsiteController::class,'blogsDetails'])->name('blogs.details');
 Route::get('/contact-us', [WebsiteController::class,'contactUs'])->name('contact.us');

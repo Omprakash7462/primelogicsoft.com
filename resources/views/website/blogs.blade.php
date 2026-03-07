@@ -1,7 +1,7 @@
-@section('title', 'Blogs')
-@section('meta_title', 'Blogs')
-@section('meta_description', 'Blogs')
-@section('meta_keywords', 'Blogs')
+@section('title', 'Prime Logic Soft Blog | Web Development, SaaS & Digital Technology Insights')
+@section('meta_title', 'Prime Logic Soft Blog | Web Development & Digital Solutions')
+@section('meta_description', 'Read the latest blogs from Prime Logic Soft about web development, mobile app development, SaaS platforms, digital marketing strategies, and modern technology solutions for businesses.')
+@section('meta_keywords', 'Prime Logic Soft blog, web development blog, SaaS development insights, mobile app development tips, digital marketing strategies, software development articles')
 @extends('layouts.website')
 @section('content')
 <div class="page-content bg-white">
