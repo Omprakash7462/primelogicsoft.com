@@ -32,7 +32,7 @@
 	<!-- All PLUGINS CSS ============================================= -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=6') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=6') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=9') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=10') }}">
 </head>
 <body>
 <div class="page-wraper">
@@ -119,7 +119,7 @@
 					<div class="col-xl-6 col-lg-6 col-md-6">
 						<div class="widget widget_info">
 							<div class="footer-logo">
-								<a href="index-2.html"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+								<a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
 							</div>
 							<div class="ft-contact">
 								<p>Primelogicsoft is a forward-thinking IT development company dedicated to building scalable, secure, and high-performance digital solutions. We specialize in transforming ideas into powerful software products that help businesses grow, automate processes, and stay ahead in the digital era.</p>
