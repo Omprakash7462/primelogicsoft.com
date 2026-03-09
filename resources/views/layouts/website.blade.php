@@ -23,7 +23,7 @@
 	<meta property="og:locale" content="en_us"/>
 	<meta property="og:title" content="@yield('meta_title')" />
 	<meta property="og:description" content="@yield('meta_description')"/>
-	<meta property="og:image" content="{{ asset('assets/images/logo.png') }}"/>
+	<meta property="og:image" content="{{ asset('assets/images/favicon.png') }}"/>
 	
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
