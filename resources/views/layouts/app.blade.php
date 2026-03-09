@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li class="nav-item" id="products">
-                        <a class="nav-link collapsed" href="{{ route('master.visitor.details') }}">
+                        <a class="nav-link collapsed" href="{{ route('master.products.index') }}">
                             <i class="bi bi-layers"></i>
                             <span>Products</span>
                         </a>
