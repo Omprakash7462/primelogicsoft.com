@@ -27,7 +27,7 @@
         </div>
         <!-- Breadcrumb row END -->
     </div>
-  
+
 		
 </div>
 @endsection

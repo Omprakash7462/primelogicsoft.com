@@ -85,8 +85,8 @@
 						<ul class="nav navbar-nav">	
 							<li @if(Route::is('index')) class="active" @endif><a href="{{ route('index') }}">Home</a></li>
 							<li @if(Route::is('about.us')) class="active" @endif><a href="{{ route('about.us') }}">About Us</a></li>
-							<li @if(Route::is('products')) class="active" @endif><a href="{{ route('products') }}">Products</a></li>
-							<li @if(Route::is('services')) class="active" @endif><a href="{{ route('services') }}">Services</a></li>
+							<li @if(Route::is('products') || Route::is('products.details')) class="active" @endif><a href="{{ route('products') }}">Products</a></li>
+							<li @if(Route::is('services') || Route::is('services.details')) class="active" @endif><a href="{{ route('services') }}">Services</a></li>
 							<li @if(Route::is('blogs')) class="active" @endif><a href="{{ route('blogs') }}">Blogs</a></li>							
 							<li @if(Route::is('contact.us')) class="active" @endif><a href="{{ route('contact.us') }}">Contact Us</a></li>
 						</ul>

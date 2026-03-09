@@ -14513,14 +14513,14 @@ section {
 
 .heading-bx h2.title,
 .heading-bx .title.h2 {
-	font-size: 45px;
+	font-size: 32px;
 }
 
 @media only screen and (max-width: 1380px) {
 
 	.heading-bx h2.title,
 	.heading-bx .title.h2 {
-		font-size: 36px;
+		font-size: 30px;
 	}
 }
 
@@ -14528,7 +14528,7 @@ section {
 
 	.heading-bx h2.title,
 	.heading-bx .title.h2 {
-		font-size: 32px;
+		font-size: 28px;
 	}
 }
 
@@ -14536,7 +14536,7 @@ section {
 
 	.heading-bx h2.title,
 	.heading-bx .title.h2 {
-		font-size: 28px;
+		font-size: 26px;
 	}
 }
 
@@ -15598,7 +15598,6 @@ label.error {
 	vertical-align: middle;
 	max-width: 100%;
 	width: auto;
-	height: 80px;
 }
 
 .feature-box-lg {
@@ -16118,7 +16117,7 @@ label.error {
 
 .feature-bx2 .feature-box-xl img,
 .feature-bx2 .feature-box-xl svg {
-	width: 60px;
+	width: 90%;
 }
 
 .feature-bx2 .icon-content p {
@@ -19266,14 +19265,13 @@ button.back-to-top {
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
-	padding-left: calc((100% - 1200px) / 2);
 }
 
 .service-wraper:after {
 	content: "";
 	background-color: #565acf;
 	height: 100%;
-	width: 45%;
+	width: 52%;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -19302,14 +19300,14 @@ button.back-to-top {
 }
 
 .service-wraper .pt-img2 {
-	bottom: 150px;
-	left: 140px;
+	bottom: 70px;
+    left: 230px;
 }
 
 @media only screen and (max-width: 1380px) {
 	.service-wraper .pt-img2 {
-		bottom: 50px;
-		left: 150px;
+		bottom: 70px;
+		left: 230px;
 	}
 }
 
