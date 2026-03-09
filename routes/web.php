@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Master\CkeditorUploadController;
 use App\Http\Controllers\Master\MasterDashboardController;
+use App\Http\Controllers\Master\ProductsController;
 use App\Http\Controllers\Master\ProjectsController;
 use App\Http\Controllers\Master\BlogsController;
 use App\Http\Controllers\Master\CategoryController;
@@ -86,11 +87,11 @@ Route::middleware(['auth', 'IsMaster'])->group(function () {
         
         
         Route::prefix('products')->name('products.')->group(function () {
-            Route::get('/index', [ProjectsController::class, 'index'])->name('index');
-            Route::post('/submit', [ProjectsController::class, 'submit'])->name('submit');
-            Route::get('/edit/{id}', [ProjectsController::class, 'edit'])->name('edit');
-            Route::post('/update/{id}', [ProjectsController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [ProjectsController::class, 'delete'])->name('delete');
+            Route::get('/index', [ProductsController::class, 'index'])->name('index');
+            Route::post('/submit', [ProductsController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [ProductsController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [ProductsController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [ProductsController::class, 'delete'])->name('delete');
         });
         
         Route::prefix('projects')->name('projects.')->group(function () {

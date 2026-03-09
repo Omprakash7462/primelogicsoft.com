@@ -26,15 +26,15 @@
                         <h5 class="card-title mb-0">Add New Product </h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('master.blog.submit') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('master.products.submit') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <div class="form-floating">
-                                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" id="title" placeholder="Title">
-                                        <label for="title">Title</label>
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" id="name" placeholder="Name">
+                                        <label for="name">Name</label>
                                     </div>
-                                    @error('title')
+                                    @error('name')
                                         <div class="form-control-feedback text-danger">
                                             {{ $message }}
                                         </div>
@@ -125,7 +125,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Title</th>
+                                                <th>Name</th>
                                                 <th>Image</th>
                                                 <th>Created Date</th>
                                                 <th>Action</th>
@@ -135,7 +135,7 @@
                                             @foreach ($products as $key => $product)
                                                 <tr>
                                                     <th scope="row">{{ $key + 1 }}</th>
-                                                    <td> {{ $product->title }} </td>
+                                                    <td> {{ $product->name }} </td>
                                                     <td><img src="{{ asset('storage/products/'.$product->image) }}" alt="{{ $product->image }}" class="img-fluid img-thumbnail" style="height: 50px;"></td>
                                                     <td>{{ date('d-m-Y', strtotime($product->created_at)) }}</td>
                                                     <td>
