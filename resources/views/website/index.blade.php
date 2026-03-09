@@ -365,7 +365,7 @@
 				</div>
 			</div>
 		</div>
-		<img class="pt-img1 animate1" src="{{ asset('assets/images/shap/plus-orange.png') }}" alt="">
+		<img class="pt-img1 animate1" src="{{ asset('assets/images/shap/trangle-orange.png') }}" alt="">
 		<img class="pt-img2 animate2" src="{{ asset('assets/images/shap/square-blue.png') }}" alt="">
 		<img class="pt-img3 animate3" src="{{ asset('assets/images/shap/circle-dots.png') }}" alt="">
 		<img class="pt-img4 animate4" src="{{ asset('assets/images/shap/circle-orange-2.png') }}" alt="">
