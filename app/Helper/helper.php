@@ -3,6 +3,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use App\Models\VisitorDetails;
 
 function createNameInitialImage($name)
 {
@@ -71,4 +72,14 @@ function createInitialNameImageWithResize($name, $uploadPath, $sizeWidth, $sizeH
     $path = public_path("{$uploadPath}/{$fileName}");
     $img->save($path);
     return $fileName;
+}
+
+function saveVisitorDetails()
+{
+    $ipAddress = request()->ip();
+    $userAgent = request()->userAgent();
+    $visitorDetails = VisitorDetails::where('ip_address', $ipAddress)->first();
+    if (!$visitorDetails) {
+        VisitorDetails::create(['ip_address' => $ipAddress, 'user_agent' => $userAgent]);
+    }
 }

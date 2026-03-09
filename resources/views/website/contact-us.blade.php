@@ -32,37 +32,63 @@
     <section class="">
         <div class="container-fluid">
             <div class="contact-wraper">
+                @if(Session::has('message_heading') && Session::has('message') && Session::has('error_icon'))
+                    <div class="alert alert-{{ Session::get("error_icon") }} alert-dismissible fade show" role="alert">
+                        <strong>{{ Session::get("message_heading") }}!</strong> {{ Session::get("message") }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @php
+                    Session::forget('message_heading');
+                    Session::forget('message');
+                    Session::forget('error_icon');
+                    @endphp
+                @endif
                 <div class="row">
                     <div class="col-lg-6 mb-30">
-                        <form class="form-wraper contact-form ajax-form" action="#">
-                            <div class="ajax-message"></div>
+                        <form class="form-wraper" method="POST" action="{{ route('contact.us.submit') }}">
+                            @csrf
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input name="name" type="text" required class="form-control" placeholder="Your Name">
+                                    <input name="name" type="text" value="{{ old('name') }}" required class="form-control" placeholder="Your Name">
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input name="email" type="email" required class="form-control" placeholder="Email">
+                                    <input name="email" type="email" value="{{ old('email') }}" required class="form-control" placeholder="Email">
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input name="phone" type="text" required class="form-control" placeholder="Phone Numbers">
+                                    <input name="phone" type="tel" maxlength="10" value="{{ old('phone') }}" required class="form-control" placeholder="Phone Numbers">
+                                    @error('phone')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <select class="form-select">
-                                        <option selected>Selecty Department</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
+                                    <input name="subject" type="text" value="{{ old('subject') }}" required class="form-control" placeholder="Subject">
+                                    @error('subject')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea name="message" required class="form-control" placeholder="Type Message"></textarea>
+                                    <textarea name="message" required class="form-control" placeholder="Type Message">{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <div class="input-group">
-                                        <div class="g-recaptcha" data-sitekey="6Lf2gYwUAAAAAJLxwnZTvpJqbYFWqVyzE-8BWhVe" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                        <input class="form-control d-none" style="display:none;" data-recaptcha="true" required data-error="Please complete the Captcha">
-                                    </div>
-                                </div>
+                               
                                 <div class="col-lg-12">
                                     <button name="submit" type="submit" value="Submit" class="btn w-100 btn-secondary btn-lg">Submit</button>
                                 </div>

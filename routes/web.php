@@ -69,6 +69,7 @@ Route::get('/services/details/{slug}', [WebsiteController::class,'servicesDetail
 Route::get('/blogs', [WebsiteController::class,'blogs'])->name('blogs');
 Route::get('/blogs/details/{slug}', [WebsiteController::class,'blogsDetails'])->name('blogs.details');
 Route::get('/contact-us', [WebsiteController::class,'contactUs'])->name('contact.us');
+Route::post('/contact-us', [WebsiteController::class, 'contactUsSubmit'])->name('contact.us.submit');
 
 Auth::routes();
 Route::post('ckeditor/upload', [CkeditorUploadController::class, 'index'])->name('ckeditor.upload');

@@ -8,8 +8,8 @@ use App\Models\Service;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
-use App\Http\Requests\projectCreateRequest;
-use App\Http\Requests\projectUpdateRequest;
+use App\Http\Requests\serviceCreateRequest;
+use App\Http\Requests\serviceUpdateRequest;
 
 class ServicesController extends Controller
 {
@@ -24,7 +24,7 @@ class ServicesController extends Controller
         return view('master.services.index', compact('services'));
     }
 
-    public function submit(projectCreateRequest $request)
+    public function submit(serviceCreateRequest $request)
     {
         try {
             $image = uploadImageWithResize($request->file('image'), 'storage/services/', 1500, 800);
@@ -53,7 +53,7 @@ class ServicesController extends Controller
         }
     }
 
-    public function update(projectUpdateRequest $request, $id)
+    public function update(serviceUpdateRequest $request, $id)
     {
         try {
             $service = Service::find($id);
