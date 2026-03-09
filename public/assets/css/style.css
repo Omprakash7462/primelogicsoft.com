@@ -20763,8 +20763,9 @@ blockquote p {
 
 @media only screen and (max-width: 575px) {
 	.menu-logo {
-		height: 75px;
-		width: 150px;
+		height: auto;
+        width: 75%;
+        padding-top: 5px;
 	}
 }
 
@@ -21012,7 +21013,7 @@ blockquote p {
 }
 
 .menu-links .nav>li.active>a {
-	color: #f17732;
+	color: #f17732 !important;
 }
 
 .menu-links .nav>li>a {
@@ -21548,7 +21549,7 @@ blockquote p {
 		-ms-transition: all 0.5s;
 		transition: all 0.5s;
 		top: 0;
-		background-color: #171a1e;
+		background-color: #ffffff;
 		margin: 0;
 		z-index: 99;
 		overflow-y: scroll;
@@ -21567,14 +21568,14 @@ blockquote p {
 		float: none;
 		height: auto;
 		max-width: 100%;
-		padding: 20px 15px;
+		padding: 10px 15px;
 		width: 100%;
 		text-align: center;
 	}
 
 	.rs-nav .menu-links .menu-logo img {
 		max-width: unset;
-		width: 150px;
+		width: 75%;
 		vertical-align: middle;
 	}
 
@@ -21610,18 +21611,18 @@ blockquote p {
 	}
 
 	.menu-links .nav>li {
-		border-color: rgba(255, 255, 255, 0.1);
+		border-color: #1f2278;
 	}
 
 	.menu-links .nav>li a {
 		font-size: 14px;
-		color: #fff;
+		color: #1f2278;
 	}
 
 	.menu-links .nav>li:hover>a,
 	.menu-links .nav>li.active>a {
-		color: #fff;
-		border-color: rgba(255, 255, 255, 0.1);
+		color: #1f2278;
+        border-color: #1f2278;
 	}
 
 	.menu-links .nav>li .mega-menu li a,
@@ -21635,7 +21636,7 @@ blockquote p {
 	}
 
 	.header-transparent .is-fixed .menu-links .nav>li>a {
-		color: #fff;
+		color: #1f2278;
 	}
 }
 

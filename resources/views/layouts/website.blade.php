@@ -30,9 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ asset('assets/fonts/font.css') }}">
 	<!-- All PLUGINS CSS ============================================= -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=5') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=5') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=5') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=6') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=6') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=6') }}">
 </head>
 <body>
 <div class="page-wraper">
