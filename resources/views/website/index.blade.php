@@ -233,7 +233,7 @@
 										<div class="icon-content">
 											<h3 class="ttr-title">{{ $service->name }}</h3>
 											<p>{!! Str::limit(strip_tags($service->description), 200) !!}</p>
-											<a href="{{ route('services.details', ['slug'=> $service->slug]) }}" class="btn btn-primary light">View More</a>
+											<a href="{{ route('services.details', ['slug'=> $service->slug]) }}" class="btn btn-primary light">Read More</a>
 										</div>
 									</div>
 								</div>
