@@ -12,10 +12,8 @@ use App\Http\Controllers\Master\CkeditorUploadController;
 use App\Http\Controllers\Master\MasterDashboardController;
 use App\Http\Controllers\Master\ProductsController;
 use App\Http\Controllers\Master\ProjectsController;
+use App\Http\Controllers\Master\ServicesController;
 use App\Http\Controllers\Master\BlogsController;
-use App\Http\Controllers\Master\CategoryController;
-use App\Http\Controllers\Master\DestinationImportController;
-use App\Http\Controllers\Master\DestinationManagementController;
 use App\Http\Controllers\Master\TestimonialsController;
 
 /*
@@ -103,11 +101,11 @@ Route::middleware(['auth', 'IsMaster'])->group(function () {
         });
 
         Route::prefix('services')->name('services.')->group(function () {
-            Route::get('/index', [ProjectsController::class, 'index'])->name('index');
-            Route::post('/submit', [ProjectsController::class, 'submit'])->name('submit');
-            Route::get('/edit/{id}', [ProjectsController::class, 'edit'])->name('edit');
-            Route::post('/update/{id}', [ProjectsController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [ProjectsController::class, 'delete'])->name('delete');
+            Route::get('/index', [ServicesController::class, 'index'])->name('index');
+            Route::post('/submit', [ServicesController::class, 'submit'])->name('submit');
+            Route::get('/edit/{id}', [ServicesController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [ServicesController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [ServicesController::class, 'delete'])->name('delete');
         });
 
         Route::prefix('blog')->name('blog.')->group(function () {

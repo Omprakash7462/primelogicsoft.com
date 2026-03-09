@@ -22,19 +22,19 @@
     <link rel="stylesheet" href="{{ asset('assets/fonts/font.css') }}">
 
     <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="{{ asset('master/vendor/bootstrap/css/bootstrap.min.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/vendor/bootstrap-icons/bootstrap-icons.css?v=1.10.8') }}">    
+    <link rel="stylesheet" href="{{ asset('master/vendor/bootstrap/css/bootstrap.min.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/vendor/bootstrap-icons/bootstrap-icons.css?v=1.10.9') }}">    
     <!-- Template Main CSS File -->
-    <link rel="stylesheet" href="{{ asset('master/css/style.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/css/jquery.toast.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/css/select2.min.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/css/daterangepicker.css?v=1.10.8') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/style.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/jquery.toast.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/select2.min.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/daterangepicker.css?v=1.10.9') }}">
     <!-- datatables CSS File -->
-    <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/dataTables.bootstrap5.min.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/buttons.bootstrap5.min.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/fixedColumns.dataTables.min.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/css/fullcalendar.min.css?v=1.10.8') }}">
-    <link rel="stylesheet" href="{{ asset('master/css/sweetalert.css?v=1.10.8') }}">
+    <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/dataTables.bootstrap5.min.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/buttons.bootstrap5.min.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/fixedColumns.dataTables.min.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/fullcalendar.min.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/sweetalert.css?v=1.10.9') }}">
     @yield('style')
 </head>
 
@@ -114,7 +114,7 @@
                         </a>
                     </li>
                     <li class="nav-item" id="services">
-                        <a class="nav-link collapsed" href="{{ route('master.visitor.details') }}">
+                        <a class="nav-link collapsed" href="{{ route('master.services.index') }}">
                             <i class="bi bi-life-preserver"></i>
                             <span>Services</span>
                         </a>
@@ -191,14 +191,14 @@
         </a>
     </div>
     <!-- JS Files -->
-    <script type="text/javascript" src="{{ asset('master/vendor/bootstrap/js/bootstrap.bundle.min.js?v=1.10.8') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/bootstrap/js/bootstrap.bundle.min.js?v=1.10.9') }}"></script>
     <!-- Template Main JS File -->
-    <script type="text/javascript" src="{{ asset('master/js/jquery.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/js/jquery.toast.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/js/toastr.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/js/main.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/js/select2.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/js/sweetalert.min.js?v=1.10.8') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/jquery.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/jquery.toast.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/toastr.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/main.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/select2.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/sweetalert.min.js?v=1.10.9') }}"></script>
     <script>
         $(document).ready(function() {
             
@@ -243,21 +243,21 @@
         
         let editorUploadUrl = "{{ route('ckeditor.upload', ['_token' => csrf_token() ]) }}";
     </script> 
-    <script type="text/javascript" src="{{ asset('master/js/moment.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/js/daterangepicker.min.js?v=1.10.8') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/moment.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/js/daterangepicker.min.js?v=1.10.9') }}"></script>
     <!-- datatables js File -->
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/jquery.dataTables.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/dataTables.bootstrap5.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/dataTables.buttons.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.bootstrap5.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/jszip.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/pdfmake.min.js?v=1.10.8') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/vfs_fonts.js?v=1.10.8') }}"></script>        
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.html5.min.js?v=1.10.8') }}"></script>  
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.print.min.js?v=1.10.8') }}"></script>  
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.colVis.min.js?v=1.10.8') }}"></script> 
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/jquery.dataTables.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/dataTables.bootstrap5.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/dataTables.buttons.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.bootstrap5.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/jszip.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/pdfmake.min.js?v=1.10.9') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/vfs_fonts.js?v=1.10.9') }}"></script>        
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.html5.min.js?v=1.10.9') }}"></script>  
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.print.min.js?v=1.10.9') }}"></script>  
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/buttons.colVis.min.js?v=1.10.9') }}"></script> 
     <script type="text/javascript" src="{{ asset('master/ckeditor/ckeditor.js?v=1.10.9') }}"></script>
-    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/dataTables.fixedColumns.min.js?v=1.10.8') }}"></script>
+    <script type="text/javascript" src="{{ asset('master/vendor/datatables/js/dataTables.fixedColumns.min.js?v=1.10.9') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var table = $('#example').DataTable( {

@@ -20,7 +20,7 @@ body.stop-scrolling {
 
 .sweet-alert {
     background-color: white;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins";
     width: 478px;
     padding: 17px;
     border-radius: 2px;
@@ -46,7 +46,7 @@ body.stop-scrolling {
 }
 
 .sweet-alert h2 {
-    color: #000;
+    color: #012970;
     font-size: 30px !important;
     text-align: center;
     font-weight: 600;
@@ -251,7 +251,7 @@ body.stop-scrolling {
 }
 
 .sweet-alert button.confirm {
-    background-color: #24820c !important;
+    background-color: #012970  !important;
     /* transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; */
 }
 
@@ -261,7 +261,7 @@ body.stop-scrolling {
 }
 
 .sweet-alert button.confirm:active {
-    background-color: #24820c !important;
+    background-color: #012970  !important;
 }
 
 .sweet-alert button.confirm:focus {
@@ -274,7 +274,7 @@ body.stop-scrolling {
 }
 
 .sweet-alert button.cancel:hover {
-    background-color: #24820c;
+    background-color: #012970 ;
 }
 
 .sweet-alert button.cancel:active {
