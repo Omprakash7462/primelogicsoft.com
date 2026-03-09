@@ -108,7 +108,7 @@
                         </a>
                     </li>
                     <li class="nav-item" id="projects">
-                        <a class="nav-link collapsed" href="{{ route('master.visitor.details') }}">
+                        <a class="nav-link collapsed" href="{{ route('master.projects.index') }}">
                             <i class="bi bi-intersect"></i>
                             <span>Projects</span>
                         </a>
