@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('master/vendor/bootstrap/css/bootstrap.min.css?v=1.10.9') }}">
     <link rel="stylesheet" href="{{ asset('master/vendor/bootstrap-icons/bootstrap-icons.css?v=1.10.9') }}">    
     <!-- Template Main CSS File -->
-    <link rel="stylesheet" href="{{ asset('master/css/style.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/style.css?v=1.10.11') }}">
     <link rel="stylesheet" href="{{ asset('master/css/jquery.toast.css?v=1.10.9') }}">
     <link rel="stylesheet" href="{{ asset('master/css/select2.min.css?v=1.10.9') }}">
     <link rel="stylesheet" href="{{ asset('master/css/daterangepicker.css?v=1.10.9') }}">
