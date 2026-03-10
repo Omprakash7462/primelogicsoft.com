@@ -4,8 +4,8 @@
     <!-- PAGE TITLE HERE ============================================= -->
 	<title>{{ config('app.name') }} -  @yield('title')</title>
     <!-- FAVICONS ICON ============================================= -->
-	<link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}" />
+	<link rel="icon" href="{{ asset('assets/images/favicon.png?v=1') }}" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png?v=1') }}" />
 	<link rel="canonical" href="{{ url()->current() }}"/>
 	<!-- META ============================================= -->
 	<meta charset="utf-8">
@@ -23,7 +23,7 @@
 	<meta property="og:locale" content="en_us"/>
 	<meta property="og:title" content="@yield('meta_title')" />
 	<meta property="og:description" content="@yield('meta_description')"/>
-	<meta property="og:image" content="{{ asset('assets/images/favicon.png') }}"/>
+	<meta property="og:image" content="{{ asset('assets/images/favicon.png?v=1') }}"/>
 	
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
 	<!-- All PLUGINS CSS ============================================= -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=6') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=6') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=10') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=11') }}">
 </head>
 <body>
 <div class="page-wraper">
@@ -53,7 +53,7 @@
 					<!-- website logo -->
 					<div class="menu-logo logo-dark">
 						<a href="{{ route('index') }}">
-                            <img src="{{ asset('assets/images/logo.png') }}" alt="{{ config('app.name') }}">
+                            <img src="{{ asset('assets/images/logo-final-new.png') }}" alt="{{ config('app.name') }}">
                         </a>
 					</div>
 					<!-- nav toggle button -->
@@ -80,7 +80,7 @@
                     </div>
 					<div class="menu-links navbar-collapse collapse justify-content-end" id="menuDropdown">
 						<div class="menu-logo">
-							<a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+							<a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo-final-new.png') }}" alt=""></a>
 						</div>
 						<ul class="nav navbar-nav">	
 							<li @if(Route::is('index')) class="active" @endif><a href="{{ route('index') }}">Home</a></li>
@@ -119,7 +119,7 @@
 					<div class="col-xl-6 col-lg-6 col-md-6">
 						<div class="widget widget_info">
 							<div class="footer-logo">
-								<a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+								<a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo-final-new.png') }}" alt=""></a>
 							</div>
 							<div class="ft-contact">
 								<p>Primelogicsoft is a forward-thinking IT development company dedicated to building scalable, secure, and high-performance digital solutions. We specialize in transforming ideas into powerful software products that help businesses grow, automate processes, and stay ahead in the digital era.</p>

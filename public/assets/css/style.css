@@ -5335,8 +5335,7 @@ fieldset:disabled .btn {
 	float: left;
 	padding-right: 0.5rem;
 	color: #6c757d;
-	content: var(--bs-breadcrumb-divider, "/")
-	;
+	content: var(--bs-breadcrumb-divider, "/");
 }
 
 .breadcrumb-item.active {
@@ -19300,7 +19299,7 @@ button.back-to-top {
 
 .service-wraper .pt-img2 {
 	bottom: 70px;
-    left: 230px;
+	left: 230px;
 }
 
 @media only screen and (max-width: 1380px) {
@@ -20727,7 +20726,7 @@ blockquote p {
 	margin-bottom: 0;
 	margin-left: 0;
 	margin-right: 0;
-	width: 300px;
+	width: 30%;
 	height: 105px;
 	position: relative;
 	z-index: 9;
@@ -20763,8 +20762,8 @@ blockquote p {
 @media only screen and (max-width: 575px) {
 	.menu-logo {
 		height: auto;
-        width: 75%;
-        padding-top: 5px;
+		width: 75%;
+		padding-top: 5px;
 	}
 }
 
@@ -21621,7 +21620,7 @@ blockquote p {
 	.menu-links .nav>li:hover>a,
 	.menu-links .nav>li.active>a {
 		color: #1f2278;
-        border-color: #1f2278;
+		border-color: #1f2278;
 	}
 
 	.menu-links .nav>li .mega-menu li a,

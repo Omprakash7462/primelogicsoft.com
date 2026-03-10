@@ -13,8 +13,8 @@
     <meta name="description" content="@yield('description')">
     <meta name="keywords " content="@yield('keywords')">
     <!-- Favicons -->
-    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}" />
+    <link rel="icon" href="{{ asset('assets/images/favicon.png?v=1') }}" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png?v=1') }}" />
     <!-- Google Fonts -->
     <!-- Preloaded local web font (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
             <header id="header" class="header fixed-top d-flex align-items-center">
                 <div class="d-flex align-items-center justify-content-between">
                     <a href="{{ route('master.dashboard') }}" class="logo d-flex align-items-center">
-                        <img src="{{ asset('assets/images/logo.png') }}" alt="{{ config('app.name', 'Tourister Map') }}">
+                        <img src="{{ asset('assets/images/logo-final-new.png') }}" alt="{{ config('app.name', 'Tourister Map') }}">
                     </a>
                     <i class="bi bi-list toggle-sidebar-btn"></i>
                 </div><!-- End Logo -->
