@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/buttons.bootstrap5.min.css?v=1.10.9') }}">
     <link rel="stylesheet" href="{{ asset('master/vendor/datatables/css/fixedColumns.dataTables.min.css?v=1.10.9') }}">
     <link rel="stylesheet" href="{{ asset('master/css/fullcalendar.min.css?v=1.10.9') }}">
-    <link rel="stylesheet" href="{{ asset('master/css/sweetalert.css?v=1.10.9') }}">
+    <link rel="stylesheet" href="{{ asset('master/css/sweetalert.css?v=1.10.11') }}">
     @yield('style')
 </head>
 
