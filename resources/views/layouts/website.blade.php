@@ -42,7 +42,7 @@
 			"url": "https://www.primelogicsoft.com/",
 			"logo": {
 			"@type": "ImageObject",
-			"url": "https://www.primelogicsoft.com/assets/images/logo.png"
+			"url": "https://www.primelogicsoft.com/assets/images/logo-final-new.png"
 			},
 			"description": "Prime Logic Soft is a software development company offering custom web development, SaaS development, mobile app development, and e-commerce website development services.",
 			"founder": {
