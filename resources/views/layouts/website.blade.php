@@ -32,7 +32,7 @@
 	<!-- All PLUGINS CSS ============================================= -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=6') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=6') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=13') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=14') }}">
 </head>
 <body>
 <div class="page-wraper">
