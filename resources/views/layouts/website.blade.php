@@ -33,6 +33,65 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.min.css?v=6') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper.min.css?v=6') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=14') }}">
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"@id": "https://www.primelogicsoft.com/#organization",
+			"name": "Prime Logic Soft",
+			"url": "https://www.primelogicsoft.com/",
+			"logo": {
+			"@type": "ImageObject",
+			"url": "https://www.primelogicsoft.com/assets/images/logo.png"
+			},
+			"description": "Prime Logic Soft is a software development company offering custom web development, SaaS development, mobile app development, and e-commerce website development services.",
+			"founder": {
+			"@type": "Person",
+			"name": "Rajkunti Sahu"
+			},
+			"address": {
+			"@type": "PostalAddress",
+			"addressCountry": "India"
+			},
+			"areaServed": {
+			"@type": "Country",
+			"name": "Worldwide"
+			},
+			"knowsAbout": [
+			"Custom Web Development",
+			"SaaS Development",
+			"Mobile App Development",
+			"E-commerce Development",
+			"Laravel Development",
+			"API Development",
+			"Software Development"
+			],
+			"makesOffer": [
+			{
+				"@type": "Service",
+				"name": "Custom Web Application Development"
+			},
+			{
+				"@type": "Service",
+				"name": "SaaS Development Services"
+			},
+			{
+				"@type": "Service",
+				"name": "Mobile App Development"
+			},
+			{
+				"@type": "Service",
+				"name": "E-commerce Website Development"
+			}
+			],
+			"contactPoint": {
+			"@type": "ContactPoint",
+			"contactType": "customer support",
+			"email": "info@primelogicsoft.com",
+			"availableLanguage": ["English"]
+			}
+		}
+	</script>
 </head>
 <body>
 <div class="page-wraper">
